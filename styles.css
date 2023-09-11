@@ -1,9 +1,109 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 body {
     background-color: #c9d2fc;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* REUSABLE CLASSES */
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--dominant-color-two);
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.nav {
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav_logo span {
+    color: var(--accent-color-one);
+}
+
+.nav_toggle, .nav_close {
+    display: flex;
+    font-size: 1.25rem;
+    color: var(--accent-color-one);
+    background-color: var(--dominant-color-one);
+    padding: 5px;
+    border-radius: 25rem;
+    cursor: pointer;
+}
+
+/* NAV for mobile devices */
+@media screen and (max-width: 1023px) {
+    .nav_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: var(--dominant-color-one);
+        box-shadow: 0 0 15px var(--accent-color-two);
+        width: 50%;
+        height: 100%;
+        padding: 4.5rem 0 0 3rem;
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px); /* for Safari */
+        transition: right .4s;
+    }
+}
+
+.nav_list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+
+.nav_link {
+    color: var(--secondary-color-one);
+    font-weight: var(--font-medium);
+    border-bottom: 2px solid transparent;
+    transition: all .4s;
+}
+
+.nav_link:hover {
+    border-bottom: 2px solid var(--accent-color-one);
+    color: var(--accent-color-one);
+}
+
+.nav_close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* Show menu bar */
+.show_menu {
+    right: 0;
 }
 
 .cat-head {
@@ -203,4 +303,26 @@ body {
     top: 134px;
     left: 109px;
     transform: rotate(3deg);
+}
+
+@media screen and (min-width: 1023px) {
+    .container {
+        margin-inline: auto;
+    }
+    .nav {
+        height: 5rem;
+    }
+
+    .nav_close, .nav_toggle {
+        display: none;
+    }
+
+    .nav_list {
+        flex-direction: row;
+        column-gap: 2.5rem;
+    }
+
+    .nav_menu {
+        width: initial;
+    }
 }
